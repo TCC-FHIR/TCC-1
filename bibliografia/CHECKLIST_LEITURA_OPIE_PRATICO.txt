@@ -1,0 +1,265 @@
+================================================================================
+CHECKLIST PRÁTICO: O QUE "PESCAR" AO LER OPIE (2024)
+================================================================================
+Tempo: 3-4 horas | Foco: Ameaças práticas + ponte para seu TCC
+
+================================================================================
+1. CONTEXTO E CONFLITO LEGAL (Cap. 1.2 e 2.5 | Páginas 2-3, 23-25)
+================================================================================
+
+[ ] Como Opie formula a HIPÓTESE no início (p. 6)?
+    → Copie exatamente para usar como referência
+
+[ ] Conflito Cures Act vs. HIPAA:
+    [ ] Qual CFR section do HIPAA ele cita para "Minimum Necessary"?
+    [ ] Qual regulation do ONC para "Information Blocking"?
+    [ ] Ele culpa quem pelo conflito? (Legisladores? SMART designers? Implementadores?)
+
+[ ] "Out-of-the-box insecurity":
+    [ ] Opie diz que servidores FHIR foram implantados com config padrão insegura?
+    [ ] Por quê? (Pressão de deadline? Falta de awareness? Ambos?)
+    → USE ISSO: Mostra que problema não é teórico — é prático e sistêmico
+
+[ ] 21st Century Cures Act timeline:
+    [ ] Quando foi promulgado? (2016)
+    [ ] Quando entrou em vigor para FHIR? (ONC Final Rule = 2020)
+    [ ] Isso explica por que muitos servidores têm vulnerabilidades agora? (2024)
+
+================================================================================
+2. POR QUE PENETRATION TESTING (Cap. 2.8.2 e 3.4.1 | Páginas 39-41, 47)
+================================================================================
+
+[ ] Qual é a justificativa de Opie para NÃO usar só scanners automáticos?
+    [ ] Quais ferramentas automáticas ele cita como insuficientes?
+    [ ] Qual é a limitação específica? (Não entendem negócio de saúde? Lógica FHIR?)
+    → USE ISSO: Justifica por que sua estratégia de "análise + case study" é rigorosa
+
+[ ] Metodologia de Opie:
+    [ ] Qual foi a sequência? (BurpSuite → ZAP → Postman? Ou paralelo?)
+    [ ] Algumas vulns foram encontradas MANUALMENTE (sem ferramenta)?
+    [ ] Wazuh foi usado para detectar os ataques em tempo real?
+
+[ ] Alinhamento com standards:
+    [ ] Opie cita OWASP como justificativa? (sim/não)
+    [ ] Cita NIST? (sim/não)
+    [ ] Essas citações vão úteis para seu TCC
+
+================================================================================
+3. O SETUP TÉCNICO: SMART + Keycloak (Cap. 4.2.3, 4.3 | Páginas 52-59)
+================================================================================
+
+[ ] Figura 4.1 (Página 56): OAuth 2.0 Flow
+    [ ] Onde Keycloak emite o token?
+    [ ] Onde IBM FHIR Server DEVERIA filtrar dados (mas não faz)?
+    [ ] Onde entra Wazuh?
+
+[ ] Seção 4.3.3 (Contradictions with HIPAA Privacy Requirements):
+    [ ] Opie dá um exemplo CONCRETO de escopo SMART excessivo?
+    [ ] Qual recurso? (Observation? Condition? MedicationRequest?)
+    [ ] Qual é o dado sensível que foi retornado? (HIV? Psiquiatria? Toxicologia?)
+    → USE ISSO: Exemplo concreto para sua apresentação para Erico
+
+[ ] Configuração específica:
+    [ ] IBM FHIR Server versão? (importante para reproduzibilidade)
+    [ ] Keycloak versão?
+    [ ] Apache versão?
+    [ ] Banco de dados? (PostgreSQL? Em-memory?)
+    [ ] Essas versões estão em Apêndice D (página 91+)?
+
+[ ] SMART Scopes usados em teste:
+    [ ] Quais escopos Opie testou? (patient/Patient.read? patient/Observation.read?)
+    [ ] Ele modificou a configuração padrão de Keycloak?
+    [ ] Ou testou "como sai da caixa"?
+
+================================================================================
+4. OS ATAQUES REMOTOS REAIS (Cap. 5 | Páginas 64-68)
+================================================================================
+
+Para cada vulnerabilidade, procure por ESTES DETALHES:
+
+4.1. RATE LIMITING / DoS (5.2.1)
+---
+[ ] Teste específico:
+    [ ] Quantas requisições/segundo exauriram o servidor?
+    [ ] Em quanto tempo? (1 min? 5 min?)
+    [ ] CPU ou Memória primeiro?
+    [ ] Impacto: quem vira incapaz de usar? (Toda a API? Só esse paciente?)
+
+[ ] Detectabilidade:
+    [ ] Wazuh alertou? (sim/não)
+    [ ] Em quanto tempo? (imediato? 30 seg depois?)
+    [ ] Qual alerta Wazuh disparou? (CPU high? Network flood?)
+
+[ ] Relevância HIPAA:
+    [ ] Qual seção do HIPAA é violada? (Disponibilidade = § 164.308?)
+    [ ] Opie cita consequência? (Paciente não consegue autorizar acesso?)
+
+4.2. REFLEXTED XSS / Token Hijacking (5.3.2)
+---
+[ ] Endpoint vulnerável:
+    [ ] Qual endpoint? (consentimento? visualização de perfil? autorização?)
+    [ ] Payload EXATO que Opie usou? (importante: é real ou POC artificial?)
+
+[ ] O ataque prático:
+    [ ] Bearer Token foi realmente capturado? (ou apenas "poderia ser"?)
+    [ ] Em qual navegador? (Chrome? Firefox? IE específico?)
+    [ ] Como o atacante mantém acesso? (rouba o token e reutiliza depois?)
+
+[ ] Impacto clínico:
+    [ ] O que o atacante consegue fazer com o token roubado?
+    [ ] Exfiltrar prontuários? Modificar medicações? Só ler?
+
+[ ] Detectabilidade:
+    [ ] Wazuh detectou a exfiltração de dados?
+    [ ] Logs de auditoria mostraram acesso anômalo?
+
+4.3. REFERRER LEAKAGE (5.4.1)
+---
+[ ] Quais informações foram vazadas?
+    [ ] Patient ID? (sim/não) — CRÍTICO
+    [ ] Parâmetros de exame? (sim/não)
+    [ ] Diagnóstico? (sim/não)
+
+[ ] Vetor:
+    [ ] Entre quais domínios o vazamento ocorreu?
+    [ ] (FHIR server → Authorization server → Third-party app?)
+    [ ] Headers HTTP específicos? (Referer?)
+
+[ ] Silenciosidade:
+    [ ] Paciente/profissional percebe que dados foram vazados?
+    [ ] Logs mostram o vazamento?
+    [ ] Isso é violação de sigilo médico?
+
+4.4. CLICKJACKING (5.4.2)
+---
+[ ] Qual tela foi vulnerável?
+    [ ] Consentimento OAuth? (Keycloak authorization page?)
+    [ ] Perfil do paciente?
+    [ ] Autorização de acesso a app?
+
+[ ] Como funciona o ataque:
+    [ ] Opie descreve embutir iframe transparente?
+    [ ] Usuário autoriza sem perceber?
+
+[ ] Validação:
+    [ ] Opie testou realmente? (POC video? Screenshots?)
+    [ ] Funcionou em qual navegador?
+    [ ] X-Frame-Options estava faltando? (sim/não)
+
+================================================================================
+5. DISCUSSÃO E MITIGAÇÕES (Cap. 6 | Páginas 69-73)
+================================================================================
+
+[ ] Seção 6.4 (Enhancing Security Protocols):
+    [ ] Opie recomenda API Gateways? (sim/não)
+    [ ] WAF (Web Application Firewall)? (sim/não)
+    [ ] Rate Limiting? (sim/não)
+    [ ] Input Sanitization? (sim/não)
+    → ESSAS SÃO A PONTE PARA SEU TCC
+
+[ ] Seção 6.5 (Cross-Domain Data Sharing Standards):
+    [ ] Opie sugere mudanças no SMART spec? (sim/não)
+    [ ] Sugere mudanças na implementação? (sim/não)
+    [ ] Sugere mudanças no HIPAA? (sim/não)
+
+[ ] Limitações que Opie reconhece:
+    [ ] O teste foi só em IBM FHIR Server (não em HAPI, Azure, etc)?
+    [ ] Opie testou só servidor default ou configurações hardened também?
+    [ ] Ele menciona "isso pode variar em outras implementações"?
+
+================================================================================
+6. APÊNDICES (Página rápida visual | Páginas 91-118)
+================================================================================
+
+[ ] Apêndice D (Installation and Configuration):
+    [ ] Coletar versões de CADA software (para reprodutibilidade)
+    [ ] Scopes SMART configurados? (coletar exatamente)
+    [ ] Roles no Keycloak? (admin? operator? read-only?)
+
+[ ] Apêndice H (Penetration Testing):
+    [ ] Telas do BurpSuite — qual vulnerabilidade cada ferramenta encontrou?
+    [ ] Requisições JSON — qual é o formato exato de um GET /Observation?
+    [ ] Isso vai te dar segurança de que "sim, existem mesmo"
+
+================================================================================
+7. RED FLAGS A MARCAR (para discutir com Erico na sexta)
+================================================================================
+
+Se encontrar QUALQUER um desses, marque para perguntar:
+
+❌ Vulnerabilidade que Opie mencionou mas NÃO conseguiu explorar totalmente
+   → Marca: Cap/página _____ | Vulnerabilidade: ___________
+
+❌ Setup que parece artificial (ex: desabilitou firewall, removeu Wazuh)
+   → Marca: Cap/página _____ | Detalhe: ___________
+
+❌ Recomendação que contradiz a spec de SMART on FHIR
+   → Marca: Cap/página _____ | Contradição: ___________
+
+❌ Estatísticas de impacto que parecem pequenas
+   → Marca: Cap/página _____ | Impacto: ___________
+
+❌ Apêndices que NÃO incluem configuração exata (impossível reproduzir)
+   → Marca: Apêndice _____ | Falta: ___________
+
+================================================================================
+8. TEMPLATE RÁPIDO PARA ANOTAÇÕES
+================================================================================
+
+VULNERABILIDADE: _______________
+CAPÍTULO: ____ | PÁGINA: ____
+OWASP: ________________
+HIPAA (CFR §): ________________
+EXPLORADA COMPLETAMENTE? [ ] Sim [ ] Não [ ] Parcial
+DETECTADA POR WAZUH? [ ] Sim [ ] Não [ ] Não testado
+POC CONCRETO? [ ] Sim (descrever) [ ] Não, teórico
+RELEVÂNCIA PARA SEU TCC: [ ] Alta [ ] Média [ ] Baixa
+DÚVIDA/NOTA: _________________________________
+
+================================================================================
+9. CONEXÃO COM SEU TCC (sempre pergunte enquanto lê)
+================================================================================
+
+Para CADA vulnerabilidade Opie encontrou:
+
+1. "Isso valida um gap da minha matriz SMART vs OWASP?"
+   → SIM = Opie é prova empírica
+   → NÃO = Talvez Opie identificou algo novo
+
+2. "Isso viola requisito HIPAA?"
+   → SIM = Bridge regulatório existe
+   → NÃO = Talvez seja apenas técnico
+
+3. "Isso é ameaça prática ou teórica?"
+   → PRÁTICA = Use para Erico
+   → TEÓRICA = Mencione como "possível mas improvável"
+
+4. "Como eu mitigaria isso no meu TCC II?"
+   → API Gateway? WAF? Rate limiting? Input sanitization?
+   → Anote para discussão
+
+================================================================================
+CRONOGRAMA SUGERIDO
+================================================================================
+
+Sexta 30 ago (hoje):
+  [ ] 2-3 horas: Cap 1-2 (contexto + conflito legal + metodologia)
+
+Sábado 31 ago:
+  [ ] 1-2 horas: Cap 3-4 (setup técnico + implementação)
+
+Domingo 1º set:
+  [ ] 1-2 horas: Cap 5 (vulnerabilidades - LEITURA LENTA, pele repousa aqui)
+
+Segunda 2 set:
+  [ ] 30-45 min: Cap 6 (discussão + mitigações)
+  [ ] 15 min: Apêndices D + H (visual rápido)
+
+Terça 3 set:
+  [ ] Review notas + montar argumentação para Erico
+
+TOTAL: ~3.5-4 horas (não 5)
+
+================================================================================
+Boa leitura! Use este checklist em paralelo com o PDF.
+================================================================================
