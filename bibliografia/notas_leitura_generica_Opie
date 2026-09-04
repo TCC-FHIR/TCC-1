@@ -229,9 +229,11 @@ providing a holistic view of the security landscape [46, 73]."
 
 Alguns dos problemas acima podem corresponder a mais de um item do top 10, por exemplo: problemas de autenticação podem corresponder aos itens 1, 2, 3 e 6, talvez mais dependendo de qual o problema específico
 
+============================ Chapter 6 ============================
 
-
-
+HIPAA + Cures Act cobrem: autenticação OAuth 2.0, transmissão criptografada, acesso baseado em credenciais.
+Não cobrem: XSS, clickjacking, PRSSI, referrer leakage, rate limiting.
+Resultado: Um atacante externo consegue injetar JavaScript, coagir cliques não-autorizados e vazar IDs de pacientes — violando HIPAA § 164.502(b) — sem precisar de acesso privilegiado
 
 
 

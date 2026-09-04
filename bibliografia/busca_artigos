@@ -164,3 +164,123 @@ SA Demurjian, T Agresta, E Sanzi, J DeStefano - WEBIST, 2020 - scitepress.org
 -----------------------ACM (https://dl.acm.org/): 35,817 resultados
 
 -----------------------Springer (https://link.springer.com/): 149,893 resultados, óbvio que abrangente demais
+
+
+D) ("FHIR" OR "HL7") AND ("API security" OR "access control") AND ("vulnerability" OR "threat")
+
+-----------------------Google Scholar: 3370 resultados 
+Aparece Opie mas número de resultados indica que possivelmente é abrangente demais
+
+
+-----------------------IEEE(https://ieeexplore.ieee.org/Xplore/home.jsp): 12 resultados       alguns destacados abaixo
+Exploring the Evolving Landscape of API Security Challenges in the Healthcare Industry: A Comprehensive Review
+Akram Al-Rumaim;Jyoti D. Pawar
+2023 16th International Conference on Security of Information and Networks (SIN)
+
+Measuring Healthcare Data Leaks and Security Flaws at Internet Scale
+
+Nico Brüggemann;Lukas Schmidt;Marvin Dölzer;Marius Brockhoff;Fabian Ising;Christoph Saatjohann;Sebastian Schinzel
+2026 IEEE 11th European Symposium on Security and Privacy (EuroS&P)
+
+Hybrid Post-Quantum Cryptography (PQC) for Patient-Centric EHR
+
+Edy Prayitno;Noor Alis Setiyadi;Erma Sofiani;Edi Iskandar;Basuki Heri Winarno;Sri Setyowati
+2025 8th International Seminar on Research of Information Technology and Intelligent Systems (ISRITI)
+
+A Comprehensive Model for Securing Sensitive Patient Data in a Clinical Scenario
+
+Antonio López Martínez;Manuel Gil Pérez;Antonio Ruiz-Martínez
+IEEE Access
+Year: 2023
+
+Practical and Efficient Non-Interactive Multi-Client Searchable Encryption for E-Healthcare Systems
+
+Yanpeng Ba;Yuan Ping;Xiali Hei;Zheng Yuan
+IEEE Transactions on Emerging Topics in Computing
+Year: 2026
+
+
+Securing Mobile e-Health Environments by Design: A Holistic Architectural Approach
+
+Helder Aranha;Massimiliano Masi;Tanja Pavleska;Giovanni Paolo Sellitto
+2019 International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)
+
+
+
+
+-----------------------ACM (https://dl.acm.org/): 87 resultados   abaixo alguns destaques
+
+
+ October 2023
+Published By ACM
+Ensuring FHIR Authentication and Data Integrity by Smart Contract and Blockchain Enabled NFT
+
+    Author PictureChing-Nung Yang, Author PictureHsin-Chuan Kuo, Author PictureHsiang-Han Cheng 
+
+
+ May 2026
+Published By ACM
+Benchmarking Security Features in Open-Source Healthcare Software Systems
+
+    Author PictureYMS Tharaka, Author PictureWVC Maduwanthi, Author PictureL. Munasinghe 
+
+ April 2024
+Published By ACM
+Privacy Preservation of Electronic Health Records in the Modern Era: A Systematic Survey
+
+    Author PictureRaza Nowrozy, Author PictureKhandakar Ahmed, Author PictureA. S. M. Kayes, Author PictureHua Wang, Author PictureTimothy R. McIntosh 
+
+
+ January 2016
+Published By ACM
+A cloud security framework for a data centric WSN application
+
+    Author PictureSayantani Saha, Author PictureRounak Das, Author PictureSuman Datta, Author PictureSarmistha Neogy 
+
+
+
+research-article
+August 2026
+Published By ACM
+Computing-Empowered E-Health and Telemedicine: System Architecture, Core Algorithms, and System Challenges--Submission Template for ACM Papers
+
+    Author PictureYucong Wan 
+
+ October 2010
+Published By ACM
+XML security in healthcare web systems                           antigo demais
+
+    Author PictureWasim A. Al-Hamdani 
+
+ July 2026
+JUST ACCEPTED
+Published By ACM
+Towards Secure Healthcare 4.0: Zero-Trust Based Continuous Authentication Framework Using Biometric Pulse Data
+
+    Author PictureBhanu Chander 
+
+ November 2025
+Published By ACM
+A Distributed Architecture for Privacy-Preserving Management, Authorization, and Secure Update of Genomic Data
+
+    Author PictureYunyan Xiong, Author PictureYijun Mao, Author PictureMingju Yu, Author PictureXiaolan Zhang 
+
+
+ June 2026
+Published By ACM
+A Systematic Review of Intrusion Detection Systems for Internet of Medical Things: Performance, Efficiency, Explainability, and Generalization
+
+    Author PictureOswald Adohinzin, Author PictureYoussef Harrath 
+
+
+
+
+-----------------------Springer (https://link.springer.com/): 304 resultados, talvez abrangente demais
+
+Vários resultados com blockchain e IoT em saúde, mas no geral tangentes
+Exemplo:
+Naresh, V.S., Sada, R., Allu, R.J.P. et al. Exploring the potential of blockchain technology in modern healthcare systems. Peer-to-Peer Netw. Appl. 18, 314 (2025). https://doi.org/10.1007/s12083-025-02132-3
+
+
+
+
