@@ -1,0 +1,166 @@
+Verificar se OPIE e MOCANU aparecem
+
+A) "SMART on FHIR" OWASP HIPAA vulnerability
+-----------------------Google Scholar (12 resultados no total então listo todos abaixo):
+Exploring security vulnerabilities in FHIR server implementations: A case study on IBM's FHIR server in the context of the 21st century cures act
+CA Opie - 2024 
+
+A HIPAA-Aware Agentic AI Co-Pilot Framework: Orchestrating Secure Multi-Step EHR Workflows for Clinical Burden Reduction in US Hospital Systems
+MK Damarched - Journal of Drug Delivery & Therapeutics, 2026
+
+[PDF] CAPF: A Clinical Agent Permission Framework for HIPAA-Aligned Least-Privilege Authorization in Multi-Agent Healthcare AI Systems
+R Khanna, J Nandal - Artificial Intelligence in Medicine and …, 2026
+
+Zero-trust data fabrics: A policy-driven model for secure cross-cloud healthcare and financial data exchanges
+LS Surisetty - International Journal of Advanced Research in …, 2021
+
+[PDF] Connected but Compliant-Governance Framework for Interoperable Neurocognitive IoT Systems
+MDA RAHAMAN
+
+[PDF] Security on FHIR
+A Marcus - Asymmetrik, Inc., November, 2018 
+
+[HTML] Multi-component pipeline LLMs for interoperable healthcare data: A scoping review from clinical summarization to multimodal integration
+JC Ferreira, R Correia, IMD Rosa - 2026 - intechopen.com
+
+A HIPAA-compliant web application design framework for next-generation telehealth systems
+SS Akib Rahman - International Journal of Research & Technology, 2024 - ijrt.org
+
+zk-ID: A privacy-preserving identity verification framework for healthcare using blockchain, ECDSA, and zero-knowledge proofs
+SK Abirami, GR Karpagam… - … Relevant Applications of … - api.taylorfrancis.com
+
+AI-Driven Cloud-Native Microservices Framework for Secure Healthcare Prescription Automation, Software Reliability, and Scalable Deployment Optimization
+SR GUDI - International Journal of Emerging Trends in …, 2026 - internationaljournalssrp.org
+
+Design and Implementation of a Secure Cloud and Network Framework for AI-Based Predictive Analytics in Healthcare and Finance
+CJP Hale - International Journal of Computer Technology and …, 2025 - ijctece.com
+
+Utilização da Tecnologia SDR para Autenticação de Dispositivos IoMT Baseada em RF Fingerprint
+FMM Gomes - 2023 - search.proquest.com
+
+
+
+-----------------------IEEE(https://ieeexplore.ieee.org/Xplore/home.jsp): 0 resultados
+
+-----------------------ACM (https://dl.acm.org/): 0 resultados
+
+-----------------------Springer (https://link.springer.com/): 0 resultados
+
+Devido à ausência de resultados em algumas DBs, para verificar como poderia modificar a string de busca fiz uma busca direta por Opie, "Exploring security vulnerabilities in FHIR server implementations", para verificar quais palavras-chave estariam associadas a esse trabalho. Nesse caso, a IEEE retornou 0 resultados e a ACM 48, nenhum desses sendo o artigo de Opie ou mesmo trabalhos sobre FHIR. Talvez tenha a ver com a natureza open source da área (Opie está disponível publicamente no site da sua universidade, por exemplo: https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/f76a1456-0d4b-472f-85d9-e9ba7fa4069c/content)
+
+
+Obs.: portal de periódicos integrados CAPES via proxy unisinos teve 0 resultados (https://www-periodicos-capes-gov-br.ez101.periodicos.capes.gov.br/index.php/acervo/buscador.html?source=all&q=%22SMART+on+FHIR%22+OWASP+HIPAA+vulnerability)
+
+
+Como Opie cita "J. A. Diaz-Rojas, J. O. Ocharan-Hernandez, J. C. Perez-Arriaga, and X. Limon. Web api security vulnerabilities and mitigation mechanisms: A systematic mapping study", usei esse artigo de inspiração para outra string de busca, abaixo:
+
+B) "FHIR" OWASP "API Security" web vulnerabilities HIPAA
+
+-----------------------Google Scholar: 26 resultados, abaixo destaco os que são sobre segurança em saúde
+Aparece Opie e alguns outros que já apareceram na string de busca A
+
+ZERO-TRUST SECURITY IN CLOUD API INTEGRATIONS FOR HEALTHCARE SYSTEMS
+R VASA - TPM–Testing, Psychometrics, Methodology in Applied …, 2025 - tpmap.org
+
+Managing third-party risk: Framework details for risk management in medical technology
+M Parker, B Partridge, E Svetcov… - Advanced Health …, 2023 - books.google.com               Obs.: trecho de livro
+
+Enterprise-Grade Secure API Management using Deep Learning in Healthcare Cloud Environments
+R Balamurugan - International Journal of Engineering & Extended …, 2022 - ijeetr.com
+
+Proactive threat mitigation in API ecosystems through AI-powered anomaly detection
+LS Surisetty - International Journal of Advanced Research in …, 2023 - ijarcst.org          tangencial mas talvez relevante
+
+Cyber-Secure Cloud Architecture Integrating Network and API Controls for Risk-Aware SAP Healthcare Data Platforms
+R Sugumar - International Journal of Humanities and Information …, 2025 - ijhit.info
+
+Cybersecurity Aware Cloud Native AI Framework for Scalable Healthcare Data Analytics via APIs
+S Ramakrishna - International Journal of Research Publications in …, 2024 - ijrpetm.com
+
+Design and Implementation of a Secure Cloud and Network Framework for AI-Based Predictive Analytics in Healthcare and Finance
+CJP Hale - International Journal of Computer Technology and …, 2025 - ijctece.com
+
+Sftsdh: Applying spring security framework with TSD-based oauth2 to protect microservice architecture apis
+A Chatterjee, MW Gerdes, P Khatiwada, A Prinz - Ieee Access, 2022 - ieeexplore.ieee.org                 menciona FHIR
+
+A Secure-by-Design Cloud-Native Framework for Intelligent Healthcare Analytics Integrating Deep Learning and Generative AI for Waste Optimization and …
+OW Hellström - International Journal of Engineering & Extended …, 2024 - ijeetr.com
+
+AI-Driven Cloud-Native Microservices Framework for Secure Healthcare Prescription Automation, Software Reliability, and Scalable Deployment Optimization
+SR GUDI - International Journal of Emerging Trends in …, 2026 - internationaljournalssrp.org
+
+[HTML] FHIR 와 블록체인을 활용한 의료정보 전송의 보안성및 상호운용성 향상 방안
+박용민 - Journal of Digital Contents Society, 2025 - journal.dcs.or.kr             parece discutir FHIR e HIPAA mas está inteiramente em coreano, teria que traduzir
+
+[PDF] API Security Management
+A Balaganski - KuppingerCole Report, 2015 - files.ziftone.com               menciona HIPAA
+
+[PDF] Enhancing Security and Interoperability of Medical Information Exchange Using FHIR and Blockchain
+YM Park - 디지털콘텐츠학회논문지 (J. DCS), 2025 - journal.dcs.or.kr
+
+[HTML] Multi-component pipeline LLMs for interoperable healthcare data: A scoping review from clinical summarization to multimodal integration
+JC Ferreira, R Correia, IMD Rosa - 2026 - intechopen.com
+
+Secure Software Testing and Validation Frameworks for SAP-Centric Cloud-Native Healthcare Machine Learning Systems Managing PII and Regulated Data
+TA Huber - International Journal of Research Publications in …, 2026 - ijrpetm.com
+
+Enhancing Medical Device Security: Exploring the Exploitability and Impact of GUI Vulnerabilities Through a Hacking Tool Experiment
+JJK Küfner, S Tahir, ST Bakhsh, L Mohaisen… - … Conference on Cyber …, 2023 - Springer
+
+Architectural Frameworks for Secure Inter-Enterprise Integration in Next-Generation Systems
+S Sriramoju - … Journal of Advanced Engineering Science and …, 2026 - iadier-academy.org            menciona API security, FHIR e HIPAA
+
+Auditoría de ciberseguridad para el análisis de identificación de vulnerabilidades en dispositivo medidor de glucosa
+GA Montenegro Martínez, PV Mosquera Morales… - 2025 - repositorio.uide.edu.ec           parece ser sobre dispositivo IoT mas inclui por mencionar HIPAA e cybersec
+
+Exclui alguns resultados aparentemente relevantes que eram livros.
+
+
+-----------------------IEEE(https://ieeexplore.ieee.org/Xplore/home.jsp): 0 resultados
+
+-----------------------ACM (https://dl.acm.org/): 3 resultados
+2 conferências e 1 simpósio, nenhum especificamente sobre saúde, embora as duas conferências ao menos são em segurança, abaixo:
+ASIA CCS '26: Proceedings of the ACM Asia Conference on Computer and Communications Security
+CCS '25: Proceedings of the 2025 ACM SIGSAC Conference on Computer and Communications Security
+
+-----------------------Springer (https://link.springer.com/): 0 resultados
+
+
+
+C) "FHIR server" "access control" OR "authentication"             Obs.: muito abrangente, mas scholar retornou alguns resultados aparentemente relevantes
+
+-----------------------Google Scholar: 541 resultados, provavelmente abrangente demais, o que parece ser relevante das primeiras 2 páginas está abaixo
+HAPI-FHIR server implementation to enhancing interoperability among primary care health information systems in Sri Lanka: Review of the technical use case
+P Jayathissa, R Hewapathirana - arXiv preprint arXiv:2402.02838, 2024 - arxiv.org
+
+Interoperability and Security in the Implementation of Health Web Applications with SMART on FHIR
+LS Santos, GM Martins, FP Itturriet… - J. health …, 2023 - pesquisa.bvsalud.org
+
+Aparece Opie
+
+Secure FHIR Transactions Based on the SMART on FHIR Approach in a Health Data Exchange
+R Ranatunge, PK Karunapema - Medinfo 2025-Healthcare …, 2025 - journals.sagepub.com
+
+A smart on fhir conformant infrastructure for recording patient reported outcomes based on open-source components
+Y Körber, F Katsch, T Stamm… - … 2025: Proceedings of …, 2025 - journals.sagepub.com
+
+Scalable micro-service based approach to FHIR server with golang and No-SQL
+FS Shoumik, MIMM Talukder, AI Jami… - … of Computer and …, 2017 - ieeexplore.ieee.org           bem tangencial
+
+Enhancing Healthcare Interoperability with FHIR: A Systematic Approach to Online Data Management
+T Kim hoang le, W Kongsiriwattana, A Meny… - Proceedings of the …, 2024 - dl.acm.org            parece ser sobre interoperabilidade, não segurança
+
+[PDF] DESIGN AND EVALUATION OF A SECURE CROSS-PLATFORM MEDICAL IMAGE SHARING SYSTEM USING DICOMWEB AND HL7 FHIR STANDARDS
+AM Hayes - 2026 - researchgate.net                                                              talvez fuja do escopo, não está claro
+
+[PDF] A Scalable and Secured HL7 FHIR Healthcare Platform: Architecture, Load Testing, and Preliminary Findings
+V Šafran, U Arioz, R Sallauka… - International Journal of …, 2025 - npublications.com
+
+[PDF] Alternative Approaches for Supporting Lattice-based Access Control (LBAC) in the Fast Healthcare Interoperability Resources (FHIR) Standard.
+SA Demurjian, T Agresta, E Sanzi, J DeStefano - WEBIST, 2020 - scitepress.org
+
+-----------------------IEEE(https://ieeexplore.ieee.org/Xplore/home.jsp): 75,377 resultados
+
+-----------------------ACM (https://dl.acm.org/): 35,817 resultados
+
+-----------------------Springer (https://link.springer.com/): 149,893 resultados, óbvio que abrangente demais

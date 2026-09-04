@@ -1,0 +1,237 @@
+Obs.: essas são notas genéricas, me parece que é melhor procurar coisas específicas depois
+
+============================ Chapter 1 ============================
+
+21st Century Cures Act (2016) mandated interoperability and patient access to health data.
+Act links: http://fda.gov/regulatory-information/selected-amendments-fdc-act/21st-century-cures-act   https://www.congress.gov/114/plaws/publ255/PLAW-114publ255.pdf
+HIPAA: https://www.hhs.gov/sites/default/files/hipaa-simplification-201303.pdf
+GDPR: https://gdpr-info.eu/
+
+
+The introduction of the Meaningful Use Incentive Program by the U.S. gov-
+ernment provided financial incentives for healthcare providers to use EHRs in ways that measurably
+improved patient care [9]
+
+Que ano HL7 FHIR começou a ser desenvolvido e que ano foi lançada a primeira versão? Respondido depois abaixo
+
+HL7 FHIR foi desenvolvido para facilitar data sharing e interoperability
+
+O 21st century cures act tornou obrigatória a utilização de protocolos padronizados para troca de dados (repare que a frase, pelo menos a escrita pelo Opie, não menciona segurança explicitamente)
+
+Between 2017 and 2023, the healthcare sector has been mandated to adopt and fully integrate
+systems that can seamlessly communicate and exchange patient data [1]. The Act specifies that
+health information systems must not only be able to exchange data but also use the information
+that has been exchanged effectively and securely [26]
+
+As these systems become increasingly interconnected, the surface for potential cyber threats widens.
+The rapid pace at which these systems are being developed and integrated significantly compounds
+these risks. Quick development cycles can often overlook thorough security measures, which can lead
+to vulnerabilities in systems that handle sensitive health information [2, 38]
+
+Seção 1.3.3: servidor FHIR da IBM (agora https://github.com/LinuxForHealth/fhir) está de acordo com HIPAA e GDPR
+"Among the available options, IBM’s FHIR Server is noted for its com-
+prehensive security framework, which includes support for OAuth 2.0, data encryption, and
+detailed audit logging."
+
+Valeria a pena também explorar outros grandes open source, como Microsoft Azure FHIR Server? https://github.com/microsoft/fhir-server
+Importante notar que não sei se há "explorações profundas" desse como o Opie para o IBM. Respondido depois abaixo (Azure pago e proprietário)
+
+Reparar na estrutura do Opie: seção 1.4 detalha hipótese, seguido de research objectives e significance of research
+A hipótese especificamente é a asserção de que a API HL7 FHIR já é segura, que Opie então testa
+
+Objective 1: Identify Common Security Vulnerabilities
+Objective 2: Recommend Best Practices for Enhancing Security
+Objective 3: Assess Impact on Compliance and Evaluate Penetration Testing
+
+"This thesis explores the critical aspects of security within the framework of the 21st Century Cures Act"
+Ou seja, HIPAA por exemplo não é o foco, embora depois diga:
+"By ensuring that FHIR servers are secure,
+the research supports healthcare providers’ ability to meet HIPAA and GDPR compliance more
+effectively,"
+
+"The research is timely because it coincides with crucial deadlines for the implementation of the 21st
+Century Cures Act, which mandates significant advancements in HealthIT by specific dates [1, 9]." 
+Publicado em 2024, verificar como isso alinha com deadlines to 21st century cures act
+
+Capítulo 6 discute compliance com HIPAA, 21st century cures act, GDPR e standards da API HL7 FHIR
+
+Findings de Opie publicado em https://gitlab.com/craigopie/fhir-findings
+
+
+============================ Chapter 2 ============================
+
+o que é/foi Health Information Technology for Economic and Clinical Health (HITECH) Act ?
+HIPAA 1996
+
+introduction of the "Meaningful Use Incentive Program" under the Health Information Technology for Economic and Clinical Health (HITECH) Act of 2009 [84]
+
+
+Muito do texto é mais do mesmo, discutindo interoperability, information blocking, com foco em como a legislação torna isso obrigatório
+
+Tabela 2.1 na página 30 mostra seções chave do 21s century cures act
+
+Para disponibilizar acesso do paciente aos seus dados, é necessário ter portais e aplicativos que facilitem a interação dos pacientes com seus EHRs (electronic health records) em tempo real e segundo padrões de acessibilidade
+
+21st century cures act usa vocabulário ambíguo e genérico, seção 2.3.2
+
+While aiming to be comprehensive, this definition lacks specific requirements for security protocols
+or standards, leaving it up to individual implementers to determine what "secure" means in practice.
+This could lead to inconsistencies in the security measures applied across systems, increasing the
+risk of data breaches and unauthorized access.
+
+
+Health Level 7 (HL7), established in 1987, is a not-for-profit, ANSI-accredited standards develop-
+ing organization
+
+The development of
+Fast Healthcare Interoperability Resources (FHIR), initiated in 2011, marked a significant milestone
+for HL7.
+2014: Release of FHIR Draft Standard for Trial Use (DTSU) 1, which provided the first
+testing ground for the new framework.
+
+2020: Release 4 of FHIR, which included normative content that established FHIR as a
+mature standard, suitable for widespread implementation.
+
+página 40: Goals and Purpose of HL7 FHIR
+
+
+FHIR combines the best features of HL7’s previous
+standards with the latest web standards to produce a robust, scalable, and efficient methodology
+for sharing healthcare information electronically.
+
+the ONC selected HL7 FHIR as the foundational standard
+to achieve the interoperability aims of the Cures Act
+
+Algumas partes de Opie parecem repetitivas, por exemplo na seção 2.4.4 'This standard is built on a set of modular components called "resources,"', isso já havia sido mencionado anteriormente
+
+"One of the primary challenges is the varying levels of legacy technology
+present in current HealthIT systems"
+
+Additionally, the use of JSON Web Tokens (JWT) for secure
+information exchange and fine-grained access controls further strengthens security
+
+
+Data is typically encrypted using industry-standard algorithms,
+such as AES-256, during storage. For data in transit, FHIR mandates the use of TLS (Trans-
+port Layer Security)
+
+However, these requirements can inherently conflict with HIPAA regulations, which are designed to
+protect patient privacy and ensure the security of health information (página 44)
+
+
+The ability of patients to control the sharing of their health data, a core component of the Cures
+Act, is at odds with HIPAA’s emphasis on limiting data disclosure to the minimum necessary for the
+purpose of specific healthcare operations
+
+
+Motivo da escolha do servidor FHIR da IBM na página 46, seção 2.6.1 , seção na qual também começa a discussão do SMART on FHIR
+
+HL7’s Confluence pages provide invaluable resources, discussing various open-source implementations that feature SMART on FHIR authentication with role-based access controls [32].
+
+Respondendo questionamento anterior sobre Azure FHIR: "The Azure FHIR Server requires an Azure AD
+server for identity management, which adds to the overall expense. This can make it less feasible
+for organizations with limited budgets or those looking for cost-effective solutions. The pricing
+model typically involves charges for storage, API transactions, and additional services, which can
+accumulate depending on usage levels [42]."
+
+
+Sobre IBM FHIR: "Security Features: It includes robust security features such as support for OAuth 2.0, data
+encryption, and detailed audit logging, ensuring compliance with healthcare regulations like
+HIPAA and GDPR [25]. The IBM FHIR Server can be deployed with minimal cost compared to managed services, as it
+doesn’t require additional licensing or extensive infrastructure. It supports a range of deployment
+options, from standalone server setups to containerized environments using Docker and Kuber-
+netes [25]."
+
+Mais uma vez me parece que a escrita de Opie é repetitiva: depois da primeira menção de IBM FHIR ser gratuito, volta a falar em cost effectiveness, "without incurring significant costs" e afins várias vezes.
+
+Sobre diferentes maneiras de implementar o IBM FHIR:
+
+Each deployment method comes with specific security considerations:
+1. Configuration and Customization Challenges: Whether building from source or using
+binaries, detailed attention to configuration is essential to secure the deployment. Misconfig-
+urations can leave the server vulnerable to attacks [60].
+2. Authentication and Access Control Issues: Implementing robust authentication mecha-
+nisms such as OAuth 2.0 is crucial. Inadequate authentication controls can lead to significant
+security risks, exposing sensitive data [38].
+3. Patch Management: Regular updates and patch management are critical for maintaining
+security integrity, especially when known vulnerabilities arise [10, 39].
+
+Through rigorous security testing and vulnerability assessments, several potential security issues
+have been identified in IBM’s FHIR Server, particularly concerning role-based access controls and
+their correct implementation to ensure conservative privilege assignment.
+
+
+Given the benefits of consistency and ease of repeatability, we chose to utilize container technol-
+ogy for the deployment of the IBM FHIR Server in this case study.
+
+2.7Research Gaps and Theoretical Framing
+2.7.1Related Works
+Essas duas seções não só mencionam trabalhos relacionados como também ajudam a justificar a relevância de Opie, destacando onde os relacionados não são suficientes
+Num primeiro momento, é de particular interesse "Diaz-Rojas et al. [12] conducted a systematic mapping study on Web API security vulnerabilities,"
+[12] J. A. Diaz-Rojas, J. O. Ocharan-Hernandez, J. C. Perez-Arriaga, and X. Limon. Web api
+security vulnerabilities and mitigation mechanisms: A systematic mapping study. In 2021
+9th International Conference in Software Engineering Research and Innovation (CONISOFT),
+pages 207–218, 2021.
+https://ieeexplore.ieee.org/document/9653437
+"While their work provides a broad overview of API security challenges, it does not
+delve into the unique vulnerabilities associated with healthcare APIs, particularly those that leverage
+the FHIR standard."
+
+
+Risk management frameworks, particularly those that focus on cybersecurity risks such as the
+National Institute of Standards and Technology (NIST) Cybersecurity Framework, offer a structured
+method to assess and mitigate risks associated with API security [76].
+
+Seção 2.9.2 mencionando indiretamente interação entre OWASP Top 10, HIPAA e 21st century cures act:
+"To gauge the effectiveness and robustness of FHIR server security measures, this research employs
+benchmarks derived from both industry standards and prior academic studies. For instance, the
+OWASP Top 10 API Security Risks provides a baseline against which the security features of the
+FHIR server can be evaluated [55]. This benchmark is critical for understanding where the current
+implementation stands relative to recognized security risks and for guiding the prioritization of
+mitigation efforts.
+Additionally, the benchmarks set by compliance standards such as HIPAA and the guidelines
+outlined in the 21st Century Cures Act serve as crucial metrics for assessing the interoperability
+and security compliance of FHIR servers [1, 9]. The inclusion of these benchmarks in the analysis
+allows for a structured comparison with other HealthIT systems, highlighting areas where the FHIR
+server excels or falls short in ensuring data security and regulatory compliance [14, 77, 25]."
+
+Perguntar pro Erico: não posso incluir artigos aos quais só tive acesso graças ao scihub, certo? Teoricamente é pirataria, mas anteriormente li artigos que não estavam disponíveis publicamente ou via unisinos graças ao scihub
+
+============================ Chapter 3 ============================
+
+"The rationale for focusing on the HL7 FHIR API arises from two main considerations: 1.Global Utilization; 2.Legislative Endorsement"
+
+"The HL7 FHIR standard has been identified by the Office of the
+National Coordinator for Health Information Technology (ONC) and supported by legislative
+frameworks such as the 21st Century Cures Act as the benchmark for achieving interoperability
+among healthcare systems [78, 80]."
+
+". As a robust framework
+designed to enhance interoperability, HL7 FHIR addresses numerous challenges faced by HealthIT
+professionals, from maintaining the integrity and accessibility of sensitive medical records to ensuring
+their confidentiality in a complex digital environment [26, 32]."
+
+Bullet points sobre segurança HL7 FHIR na seção 3.2, "One of the pivotal strengths of HL7 FHIR is its comprehensive security framework, which is
+designed to protect health information at every point of its lifecycle"
+
+atenção À 3.3 Security Challenges and Vulnerability Assessment  (página 58)
+
+Em 3.4, "This methodology combines the quantitative rigor of pene-
+tration testing with the nuanced insights of qualitative assessments through system log analyses,
+providing a holistic view of the security landscape [46, 73]."
+
+->>>>>>>>>>>>Seção 3.5.1 lista pentests conduzidos e resultados esperados, IMPORTANTE, abaixo tópicos e equivalente do OWASP Top 10
+- Injection Flaws
+- Broken Authentication          API2:2023 Broken Authentication (https://owasp.org/API-Security/editions/2023/en/0xa2-broken-authentication/) e API1:2023 Broken Object Level Authorization (https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/)
+- Sensitive Data Exposure       API6:2023 Unrestricted Access to Sensitive Business Flows (https://owasp.org/API-Security/editions/2023/en/0xa6-unrestricted-access-to-sensitive-business-flows/)
+- Misconfiguration              API8:2023 Security Misconfiguration (https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/)
+- Access Control Issues         API6:2023 Unrestricted Access to Sensitive Business Flows (https://owasp.org/API-Security/editions/2023/en/0xa6-unrestricted-access-to-sensitive-business-flows/)
+
+Alguns dos problemas acima podem corresponder a mais de um item do top 10, por exemplo: problemas de autenticação podem corresponder aos itens 1, 2, 3 e 6, talvez mais dependendo de qual o problema específico
+
+
+
+
+
+
+
